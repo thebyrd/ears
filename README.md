@@ -13,7 +13,7 @@ var App = Ears.extend()
   .methods({
     someMethod: function (e) {
       console.log('you clicked somewhere!');
-      console.log(e);
+      console.log(e.target); //e.target api is the same as Backbone
     }
   });
 
