@@ -1,7 +1,7 @@
-## Ears
-A backbone like events listener built on Klass
+# Ears
+A backbone like events listener built on [Klass](http://github.com/ded/klass).
 
-### Usage
+## Usage
 extend Ears with a klass that contains an events object.
 ```javascript
 var App = Ears.extend(function (variants) {
