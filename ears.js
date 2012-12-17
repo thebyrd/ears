@@ -1,7 +1,7 @@
 var Ears = klass()
   .methods({
     initialize: function () {
-      var app = this;
+      var ear = this;
       var events = this.constructor.events;
       
       !events ?
@@ -13,7 +13,7 @@ var Ears = klass()
           var selector = e.slice(1).join(' ');
           var fn = events[key];
 
-          $(selector).bind(type, function (e) { app[fn](e); });
+          $(selector).bind(type, function (e) { ear[fn](e); });
         });
     }
   });
