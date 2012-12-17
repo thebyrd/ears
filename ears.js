@@ -1,4 +1,4 @@
-var Application = klass()
+var Ears = klass()
   .methods({
     initialize: function () {
       var app = this;
