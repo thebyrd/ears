@@ -8,12 +8,12 @@ var Ears = klass()
         console.log("no events to initialize")
       : v(events).each(function (key) {
         
-          var e = key.split(/\s+/);
-          var type = e[0];
-          var selector = e.slice(1).join(' ');
-          var fn = events[key];
+          var e = key.split(/\s+/),
+              action = e[0],
+              selector = e.slice(1).join(' '),
+              fn = events[key];
 
-          $(selector).bind(type, function (e) { ear[fn](e); });
+          $(selector).bind(action, function (e) { ear[fn](e); });
         });
     }
   });
