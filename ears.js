@@ -1,20 +1,26 @@
-var Ears = klass()
+define([
+  'lib/klass',
+  'lib/qwery',
+  'lib/bean'
+], function (klass, qwery, bean) {
+
+  var Ears = klass()
     .methods({
       initialize: function () {
-        var ear = this;
-        var events = this.constructor.events;
-        
-        !events ?
-          console.log("no events to initialize")
-        : v(events).each(function (key) {
-          
-            var e = key.split(/\s+/),
-                action = e[0],
-                selector = e.slice(1).join(' '),
-                fn = events[key];
+        var ear = this,
+            events = this.constructor.events;
 
-            $(selector).bind(action, function (e) { ear[fn](e); });
+        for (var key in events) {
+          var e = key.split(/\s+/),
+              action = e[0],
+              selector = e.slice(1).join(' '),
+              fn = events[key];
+          bean.on(qwery(selector), action, ear[fn]);
+        }
 
-          });
       }
     });
+
+  return Ears;
+
+});
