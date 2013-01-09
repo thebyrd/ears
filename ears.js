@@ -13,11 +13,10 @@ define([
         for (var key in events) {
           var e = key.split(/\s+/),
               action = e[0],
-              selector = e.slice(1).join(' '),
+              selector = qwery(e.slice(1).join(' '))[0],
               fn = events[key];
-          bean.on(qwery(selector), action, ear[fn]);
+          if (selector) bean.on(selector, action, ear[fn]);
         }
-
       }
     });
 
